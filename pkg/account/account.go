@@ -90,6 +90,7 @@ func (p *oauthPayload) domain() string {
 		}
 	}
 	domain := defaultDomain
+	log.Info("DfaultDomain1 on %s", domain)
 	ouCodeMatch := fmt.Sprintf(".%s.", strings.ToLower(p.OUCode))
 	for _, u := range p.Audiences {
 		if strings.HasPrefix(u, "https://auth.tesla.") {
@@ -105,6 +106,7 @@ func (p *oauthPayload) domain() string {
 			domain = d
 			// Prefer domains that contain the ou_code (region)
 			if strings.Contains(domain, ouCodeMatch) {
+				log.Info("Return Prefer DfaultDomain1 on %s", domain)
 				return domain
 			}
 		}
