@@ -79,7 +79,7 @@ type oauthPayload struct {
 var domainRegEx = regexp.MustCompile(`^[A-Za-z0-9-.]+$`) // We're mostly interested in stopping paths; the http package handles the rest.
 var remappedDomains = map[string]string{}                // For use during development; populate in an init() function.
 
-const defaultDomain = "fleet-api.prd.na.vn.cloud.tesla.com"
+const defaultDomain = "fleet-api.prd.eu.vn.cloud.tesla.com"
 
 func (p *oauthPayload) domain() string {
 	if len(remappedDomains) > 0 {
