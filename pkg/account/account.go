@@ -91,8 +91,10 @@ func (p *oauthPayload) domain() string {
 	}
 	domain := defaultDomain
 	log.Info("DfaultDomain1 on %s", domain)
+	// Hackfix
+	return domain
 	//ouCodeMatch := fmt.Sprintf(".%s.", strings.ToLower(p.OUCode))
-	ouCodeMatch := fmt.Sprintf(".%s.", "eu")
+
 	for _, u := range p.Audiences {
 		if strings.HasPrefix(u, "https://auth.tesla.") {
 			continue
