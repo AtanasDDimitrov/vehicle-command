@@ -90,6 +90,7 @@ func (p *oauthPayload) domain() string {
 		}
 	}
 	domain := defaultDomain
+	log.Info("Listening on %s", domain)
 	ouCodeMatch := fmt.Sprintf(".%s.", strings.ToLower(p.OUCode))
 	for _, u := range p.Audiences {
 		if strings.HasPrefix(u, "https://auth.tesla.") {
